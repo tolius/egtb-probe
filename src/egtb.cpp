@@ -209,7 +209,7 @@ std::vector<MoveInfo> get_endgame_moves(const std::string& fen)
 	}
 	catch (...)
 	{
-		cout << "ERROR " << fen << ": error" << endl;
+		cout << "ERROR " << fen << endl;
 		return vector<MoveInfo>();
 	}
 	sort(tb_moves.begin(), tb_moves.end(), comp_moves);
@@ -230,7 +230,7 @@ bool init_EGTB(const std::string& egtb_path)
 {
 	Tablebases::init(ANTI_VARIANT, egtb_path);
 	TB_Reader::init(egtb_path, true);
-	return (egtb::TB_Reader::tb_cache.size() >= 714);
+	return (TB_Reader::tb_cache.size() >= 714);
 }
 
 void init(int argc, char* argv[])
